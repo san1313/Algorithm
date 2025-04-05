@@ -1,11 +1,10 @@
 public class Main {
 	public static void main(String[] args) throws Exception {
-		int i = 1;
-		while (true) {
-			int r = nextInt();
-			if (r == 0) break;
-			int w = nextInt(), l = nextInt();
-			System.out.printf("Pizza %d %s\n", i++, Math.sqrt(w * w + l * l) <= r * 2 ? "fits on the table." : "does not fit on the table.");
+		int i = 1, r, w, l;
+		while ((r = nextInt()) != 0) {
+			w = nextInt();
+			l = nextInt();
+			System.out.printf("Pizza %d %s\n", i++, w * w + l * l <= 4 * r * r ? "fits on the table." : "does not fit on the table.");
 		}
 	}
 
