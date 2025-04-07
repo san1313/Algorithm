@@ -1,11 +1,12 @@
 public class Main {
 	public static void main(String[] args) throws Exception {
-		int t = nextInt();
+		int t = nextInt(), n, r, tmp;
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < t; i++) {
-			int n = nextInt(), r = 0;
-			for (int j = 2; j <= n; j++){
-				int tmp = n;
+			n = nextInt();
+			r = 0;
+			for (int j = 2; j <= n; j++) {
+				tmp = n;
 				while (tmp % j == 0) {
 					r++;
 					tmp /= j;
