@@ -1,13 +1,11 @@
-import java.util.Arrays;
-
 public class Main {
 	public static void main(String[] args) throws Exception {
 		int k = nextInt();
-		for (int i = 0; i < k; i++) {
-			int p = nextInt(), m = nextInt();
+		while (k-- > 0) {
+			int p = nextInt(), m = nextInt(), r = 0;
 			int[] arr = new int[m + 1];
-			for (int j = 0; j < p; j++) arr[nextInt()] = 1;
-			System.out.println(p - Arrays.stream(arr).sum());
+			for (int j = 0; j < p; j++) r += arr[nextInt()]++ > 0 ? 0 : 1;
+			System.out.println(p - r);
 		}
 	}
 
