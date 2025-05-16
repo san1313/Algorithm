@@ -1,7 +1,7 @@
 public class Main {
 	public static void main(String[] args) throws Exception {
 		int t = nextInt();
-		System.out.println(t == 1 || t == 3 || t == 5 || t == 7 || t == 9 ? 8 : 0);
+		System.out.println(t % 2 != 0 ? 8 : 0);
 	}
 
 	static int nextInt() throws Exception {
