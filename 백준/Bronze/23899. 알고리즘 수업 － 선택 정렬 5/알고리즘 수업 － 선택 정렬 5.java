@@ -3,8 +3,7 @@ import java.util.Arrays;
 public class Main {
 	public static void main(String[] args) throws Exception {
 		int n = nextInt(), r = 0;
-		int[] a = new int[n];
-		int[] b = new int[n];
+		int[] a = new int[n], b = new int[n];
 		for (int i = 0; i < n; i++) a[i] = nextInt();
 		for (int i = 0; i < n; i++) b[i] = nextInt();
 		for (int i = n - 1; i > 0; i--) {
@@ -24,8 +23,7 @@ public class Main {
 				a[i] = max;
 			}
 		}
-		if (Arrays.equals(a, b)) r = 1;
-		System.out.println(r);
+		System.out.print(Arrays.equals(a, b) ? 1 : r);
 	}
 
 	static int nextInt() throws Exception {
