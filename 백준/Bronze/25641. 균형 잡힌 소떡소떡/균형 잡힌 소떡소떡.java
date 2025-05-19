@@ -1,23 +1,13 @@
 public class Main {
 	public static void main(String[] args) throws Exception {
-		int n = nextInt(), a = 0, b = 0, cur = 0;
-		byte[] arr = new byte[n];
+		int c, n = 0, cur = 0;
+		while ((c = System.in.read()) > 47) n = n * 10 + c - 48;
+		int[] arr = new int[n], r = new int[2];
 		for (int i = 0; i < n; i++) {
-			arr[i] = (byte) System.in.read();
-			if (arr[i] == 's') a++;
-			else b++;
+			arr[i] = System.in.read();
+			r[arr[i] == 's' ? 0 : 1]++;
 		}
-		for (int i = 0; i < n - 2; i++) {
-			if (a == b) break;
-			if (arr[cur++] == 's') a--;
-			else b--;
-		}
-		System.out.println(new String(arr, cur, n - cur));
-	}
-
-	static int nextInt() throws Exception {
-		int c, r = 0;
-		while ((c = System.in.read()) > 47) r = r * 10 + c - 48;
-		return r;
+		while (r[0] != r[1]) r[arr[cur++] == 's' ? 0 : 1]--;
+		System.out.print(new String(arr, cur, n - cur));
 	}
 }
