@@ -1,26 +1,13 @@
 public class Main {
-	static int[] memo;
-
 	public static void main(String[] args) throws Exception {
 		int n = nextInt();
-		memo = new int[n + 3];
-		memo[2] = 1;
-		memo[3] = 1;
-		for (int i = 4; i <= n; i++) func(i, 0);
-		System.out.println(memo[n]);
-	}
-
-	static int func(int n, int cnt) {
-		if (n == 1) return cnt;
-		if (memo[n] != 0) return memo[n] + cnt;
-		else {
-			int min = Integer.MAX_VALUE;
-			if (n % 3 == 0) min = Math.min(func(n / 3, cnt + 1), min);
-			if (n % 2 == 0) min = Math.min(func(n / 2, cnt + 1), min);
-			min = Math.min(func(n - 1, cnt + 1), min);
-			memo[n] = min;
-			return min;
+		int[] d = new int[n + 2];
+		for (int i = 2; i <= n; i++) {
+			d[i] = d[i - 1] + 1;
+			if (i % 2 == 0) d[i] = Math.min(d[i], d[i / 2] + 1);
+			if (i % 3 == 0) d[i] = Math.min(d[i], d[i / 3] + 1);
 		}
+		System.out.println(d[n]);
 	}
 
 	static int nextInt() throws Exception {
