@@ -2,7 +2,8 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		int n = nextInt(), c = nextInt(), X = n, Y = n;
 		for (int i = 0; i < c; i++) {
-			int x = nextInt(), y = nextInt();
+			int y = nextInt(), x = nextInt();
+			if (x >= X || y >= Y) continue;
 			if (X * y >= x * Y) Y = y;
 			else X = x;
 		}
