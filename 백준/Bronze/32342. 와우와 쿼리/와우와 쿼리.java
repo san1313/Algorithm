@@ -2,10 +2,17 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		int n = nextInt();
 		for (int i = 0; i < n; i++) {
-			int[] buf = new int[1000];
-			int len = 0, c, r = 0;
-			while ((c = System.in.read()) > 13) buf[len++] = c;
-			for (int j = 0; j < len - 2; j++) if (buf[j] == 'W' && buf[j + 1] == 'O' && buf[j + 2] == 'W') r++;
+			int c, r = 0, prev = 79, st = 0;
+			while ((c = System.in.read()) > 13) {
+				if (c != prev) st++;
+				else if (c == 'W') st = 1;
+				else st = 0;
+				if (st == 3) {
+					r++;
+					st = 1;
+				}
+				prev = c;
+			}
 			System.out.println(r);
 		}
 	}
