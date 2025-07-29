@@ -11,9 +11,12 @@ public class Main {
 	}
 
 	static String readLine() throws Exception {
-		byte[] buf = new byte[1000010];
+		byte[] buf = new byte[1 << 5];
 		int len = 0, c;
-		while ((c = System.in.read()) > 13) buf[len++] = (byte) c;
+		while ((c = System.in.read()) > 13) {
+			if (len == buf.length) buf = java.util.Arrays.copyOf(buf, buf.length << 1);
+			buf[len++] = (byte) c;
+		}
 		return new String(buf, 0, len);
 	}
 }
