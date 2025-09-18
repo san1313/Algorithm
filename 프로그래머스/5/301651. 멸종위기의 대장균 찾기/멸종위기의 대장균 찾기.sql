@@ -1,0 +1,23 @@
+WITH RECURSIVE CTE AS (
+    SELECT ID,
+           1 AS GEN
+      FROM ECOLI_DATA
+     WHERE PARENT_ID IS NULL
+     UNION ALL
+    SELECT REF.ID,
+           CTE.GEN + 1
+      FROM ECOLI_DATA REF
+      JOIN CTE
+        ON REF.PARENT_ID = CTE.ID
+)
+SELECT COUNT(1) AS COUNT, GEN AS GENERATION
+  FROM ECOLI_DATA A
+  JOIN CTE
+    ON A.ID = CTE.ID
+ WHERE A.ID NOT IN (
+                    SELECT DISTINCT PARENT_ID
+                      FROM ECOLI_DATA
+                     WHERE PARENT_ID IS NOT NULL
+                   )
+ GROUP BY GEN
+ ORDER BY GEN
