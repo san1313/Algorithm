@@ -2,11 +2,14 @@ class Main {
 	public static void main(String[] args) throws Exception {
 		int n = nextInt();
 		String a = readLine(), b = readLine();
-		StringBuilder sb = new StringBuilder();
-		if (n % 2 == 1) {
-			for (char c : a.toCharArray()) sb.append(c == 48 ? 1 : 0);
-		} else sb.append(a);
-		System.out.println(sb.toString().equals(b) ? "Deletion succeeded" : "Deletion failed");
+		int l = a.length();
+		for (int i = 0; i < l; i++) {
+			if ((a.charAt(i) - 48 + n) % 2 != b.charAt(i) - 48) {
+				System.out.print("Deletion failed");
+				return;
+			}
+		}
+		System.out.print("Deletion succeeded");
 	}
 
 
@@ -17,7 +20,7 @@ class Main {
 	}
 
 	static String readLine() throws Exception {
-		byte[] buf = new byte[200000];
+		byte[] buf = new byte[1000];
 		int len = 0, c;
 		while ((c = System.in.read()) > 13) buf[len++] = (byte) c;
 		return new String(buf, 0, len);
