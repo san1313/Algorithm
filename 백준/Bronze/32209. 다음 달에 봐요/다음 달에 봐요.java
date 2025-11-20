@@ -1,16 +1,15 @@
 public class Main {
 	public static void main(String[] args) throws Exception {
 		int q = nextInt(), p = 0;
-		for (int i = 0; i < q; i++) {
+		while (q-- > 0) {
 			int a = nextInt(), b = nextInt();
-			if (a == 1) p += b;
-			else p -= b;
+			p += a == 1 ? b : -b;
 			if (p < 0) {
-				System.out.println("Adios");
+				System.out.print("Adios");
 				return;
 			}
 		}
-		System.out.println("See you next month");
+		System.out.print("See you next month");
 	}
 
 	static int nextInt() throws Exception {
