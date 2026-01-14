@@ -1,16 +1,13 @@
-import java.util.Arrays;
-
 public class Main {
 	public static void main(String[] args) throws Exception {
 		int n = nextInt(), a = 0, b = 0;
-		int[] arr = new int[3];
-		Arrays.fill(arr, n);
-		for (int i = 0; i < 3 * n; i++) arr[nextInt() - 1]--;
-		for (int i = 0; i < 3; i++) {
-			if (arr[i] == 1) a = i + 1;
-			if (arr[i] == -1) b = i + 1;
+		int[] arr = new int[4];
+		for (int i = 0; i < 3 * n; i++) arr[nextInt()]++;
+		for (int i = 1; i < 4; i++) {
+			if (arr[i] - n == -1) a = i;
+			if (arr[i] - n == 1) b = i;
 		}
-		System.out.println(a + "\n" + b);
+		System.out.print(a + "\n" + b);
 	}
 
 	static int nextInt() throws Exception {
