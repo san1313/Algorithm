@@ -9,20 +9,23 @@ public class Main {
 			System.out.println("YES");
 			return;
 		}
-		long[] sums = {sx + sy, sx - sy};
-		long[] sums2 = {ex + ey, ex - ey};
-		for (long a : sums) {
-			for (long b : sums2) {
-				long x = (a + b) / 2;
-				long y = (a - b) / 2;
-				if ((a + b) % 2 == 0 && (a - b) % 2 == 0) { // 정수 좌표
-					if (x >= 1 && x <= n && y >= 1 && y <= m) {
-						System.out.println("YES");
-						return;
-					}
+		long[][] lines1 = {{1, sx+sy}, {2, sx-sy}};
+		long[][] lines2 = {{1, ex+ey}, {2, ex-ey}};
+		for (long[] l1 : lines1) {
+			for (long[] l2 : lines2) {
+				if (l1[0] == l2[0]) continue;
+				long sum = (l1[0]==1 ? l1[1] : l2[1]);
+				long diff = (l1[0]==2 ? l1[1] : l2[1]);
+				if ((sum+diff)%2!=0 || (sum-diff)%2!=0) continue;
+				long x = (sum+diff)/2;
+				long y = (sum-diff)/2;
+				if (x>=1 && x<=n && y>=1 && y<=m) {
+					System.out.println("YES");
+					return;
 				}
 			}
 		}
+
 		System.out.println("NO");
 	}
 
