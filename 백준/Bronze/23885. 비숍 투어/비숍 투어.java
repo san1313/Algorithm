@@ -1,17 +1,25 @@
+import java.io.*;
+import java.util.*;
+
 public class Main {
 	public static void main(String[] args) throws Exception {
-		int n = nextInt(), m = nextInt(), sx = nextInt(), sy = nextInt(), ex = nextInt(), ey = nextInt();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		long N = Long.parseLong(st.nextToken());
+		long M = Long.parseLong(st.nextToken());
+
+		st = new StringTokenizer(br.readLine());
+		long sx = Long.parseLong(st.nextToken());
+		long sy = Long.parseLong(st.nextToken());
+
+		st = new StringTokenizer(br.readLine());
+		long ex = Long.parseLong(st.nextToken());
+		long ey = Long.parseLong(st.nextToken());
+
 		if ((sx + sy) % 2 == (ex + ey) % 2) {
 			System.out.println("YES");
 		} else {
 			System.out.println("NO");
 		}
-
-	}
-
-	static int nextInt() throws Exception {
-		int c, r = 0;
-		while ((c = System.in.read()) > 47) r = r * 10 + c - 48;
-		return r;
 	}
 }
