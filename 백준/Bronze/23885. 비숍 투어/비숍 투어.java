@@ -5,6 +5,10 @@ public class Main {
 			System.out.println("NO");
 			return;
 		}
+		if (sx == ex && sy == ey) {
+			System.out.println("YES");
+			return;
+		}
 		if (Math.abs(sx - ex) == Math.abs(sy - ey)) {
 			System.out.println("YES");
 			return;
@@ -25,7 +29,6 @@ public class Main {
 				}
 			}
 		}
-
 		System.out.println("NO");
 	}
 
